@@ -6,8 +6,8 @@
 	box-sizing: border-box;
 }
 .first{
-	background-image: url("children_main.png");
-	min-height: 100vh;
+	background-image: url("childbg.jpg");
+	min-height: 120vh;
 	height: auto;
 	width: auto;
 	background-position: center;

@@ -4,30 +4,81 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Doubt Forum</title>
-    <link rel="stylesheet" href="styles.css">
+<style>
+    body {
+        background-color: powderblue;
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+    }
+    .container {
+        background-color: white;
+        border-radius: 10px;
+        padding: 20px 30px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        max-width: 400px;
+        width: 90%;
+    }
+    .container h2 {
+        text-align: center;
+        margin-bottom: 20px;
+        color: #333;
+    }
+    label {
+        font-size: 14px;
+        color: #333;
+        display: block;
+        margin-bottom: 8px;
+    }
+    input, textarea, button {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 15px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        font-size: 14px;
+    }
+    button {
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+    button:hover {
+        background-color: #45a049;
+    }
+    #confirmationMessage {
+        text-align: center;
+        color: green;
+    }
+</style>
 </head>
-<body style="background-color:powderblue;">
+<body>
     <div class="container">
         <h2>Doubt Forum</h2>
-        <form id="doubtformForm" action="https://formspree.io/f/xyzypyld" method="POST" onsubmit="return submitForm(event)">
+        <form id="doubtForm" action="https://formspree.io/f/xyzypyld" method="POST" onsubmit="return submitForm(event)">
             <label for="name">Name:</label>
-            <input type="text" id="name" name="name" required>
+            <input type="text" id="name" name="name" placeholder="Enter your name" required>
 
             <label for="email">Email:</label>
-            <input type="email" id="email" name="email" required>
+            <input type="email" id="email" name="email" placeholder="Enter your email" required>
 
             <label for="phone">Phone:</label>
-            <input type="tel" id="phone" name="phone" required>
+            <input type="tel" id="phone" name="phone" placeholder="Enter your phone number" required>
 
             <label for="message">Brief description about your doubt:</label>
-            <textarea id="message" name="message" rows="4" required></textarea>
+            <textarea id="message" name="message" rows="4" placeholder="Write your doubt here..." required></textarea>
 
             <button type="submit">Submit</button>
         </form>
 
         <div id="confirmationMessage" style="display: none;">
-            <p>Your dounbts will be resolved soon!</p>
-          
+            <p>Your doubts will be resolved soon!</p>
         </div>
     </div>
 
@@ -35,15 +86,11 @@
         function submitForm(event) {
             event.preventDefault(); // Prevent the form from submitting
 
-            // Normally, you would perform AJAX request or form submission handling here.
-            // For demonstration purpose, simply show the confirmation message and clear the form.
-            document.getElementById('appointmentForm').reset(); // Clear the form fields
-            document.getElementById('appointmentForm').style.display = 'none'; // Hide the form
+            // Show the confirmation message and hide the form
+            document.getElementById('doubtForm').reset(); // Clear the form fields
+            document.getElementById('doubtForm').style.display = 'none'; // Hide the form
             document.getElementById('confirmationMessage').style.display = 'block'; // Show the confirmation message
-
-            return false;
         }
-   
-
+    </script>
 </body>
 </html>
